@@ -65,9 +65,13 @@ def optimal_two_way_merge(F):
     n = len(F)
     total_cost = 0
     for _ in range(n - 1):
-        F.sort()
-        f1 = F.pop(0)
-        f2 = F.pop(0)
+        # Get first min
+        f1 = min(F)
+        F.remove(f1)
+        # Get second min
+        f2 = min(F)
+        F.remove(f2)
+        # Merge them
         cost = f1 + f2
         total_cost += cost
         F.insert(0, cost)
